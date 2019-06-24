@@ -25,14 +25,13 @@ object Dependencies {
   private val config                         = "com.typesafe"                         % "config"                          % "1.3.4"
   private val saxon                          = "net.sf.saxon"                         % "Saxon-HE"                        % "9.9.1-3"
   private val slf4jApi                       = "org.slf4j"                            % "slf4j-api"                       % "1.7.26"
-  private val fastring                       = "com.dongxiguo"                       %% "fastring"                        % "1.0.0"
   private val spire                          = ("org.typelevel"                      %% "spire-macros"                    % "0.16.2")
     .exclude("org.typelevel", "machinist_2.12")
     .exclude("org.typelevel", "algebra_2.12")
   private val scopt                          = "com.github.scopt"                    %% "scopt"                           % "3.7.1"
   private val scalaLogging                   = "com.typesafe.scala-logging"          %% "scala-logging"                   % "3.9.2"
   private val jackson                        = "com.fasterxml.jackson.core"           % "jackson-databind"                % "2.9.9"
-  private val sfm                            = ("org.simpleflatmapper"                % "lightning-csv"                   % "6.7.0")
+  private val sfm                            = ("org.simpleflatmapper"                % "lightning-csv"                   % "6.7.1")
     .exclude("org.simpleflatmapper", "ow2-asm")
   private val sfmUtil                        = sfm.organization                       % "sfm-util"                        % sfm.revision
   private val json4sJackson                  = "org.json4s"                          %% "json4s-jackson"                  % "3.6.6"
@@ -41,7 +40,7 @@ object Dependencies {
   private val jmespath                       = "io.burt"                              % "jmespath-jackson"                % "0.3.0"
   private val boopickle                      = "io.suzaku"                           %% "boopickle"                       % "1.3.1"
   private val redisClient                    = "net.debasishg"                       %% "redisclient"                     % "3.10"
-  private val zinc                           = ("org.scala-sbt"                      %% "zinc"                            % "1.2.5")
+  private val zinc                           = ("org.scala-sbt"                      %% "zinc"                            % "1.3.0-M7")
     .exclude("org.scala-lang.modules", "scala-parser-combinators_2.12")
     .exclude("org.scala-lang.modules", "scala-xml_2.12")
     .exclude("org.scala-sbt", "launcher-interface")
@@ -92,7 +91,7 @@ object Dependencies {
     Seq(nettyBuffer, junit)
 
   def commonsDependencies(scalaVersion: String) =
-    Seq(scalaReflect(scalaVersion), config, fastring, boopickle, spire, quicklens, java8Compat, fastUuid) ++ loggingDeps ++ testDeps
+    Seq(scalaReflect(scalaVersion), config, boopickle, spire, quicklens, java8Compat, fastUuid) ++ loggingDeps ++ testDeps
 
   val coreDependencies =
     Seq(akka, akkaSlf4j, sfm, sfmUtil, java8Compat, caffeine, pebble, scalaParserCombinators, scopt) ++
